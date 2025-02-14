@@ -10,11 +10,14 @@
     <div class="pokedex">
         <div class="screen">
             <div id="loading" class="hidden">Loading...</div>
+            
+            <!-- Quiz Section -->
             <div id="quiz-container">
                 <p id="question-text"></p>
-                <div id="answer-options"></div>
+                <div id="answer-options"></div> 
             </div>
-            
+
+            <!-- Result Section -->
             <div id="result" class="hidden">
                 <h2>Your Pokémon Valentine is...</h2>
                 <img id="pokemonImage" src="" alt="Your Pokémon match">
@@ -24,12 +27,14 @@
                 </div>
             </div>
 
+            <!-- Caught Pokémon Section -->
             <div id="caught-screen" class="hidden">
                 <h2>Got it! 🎉</h2>
                 <p>Now let's take a look at your catch...</p>
                 <button onclick="revealSurprise()">Open Pokéball</button>
             </div>
 
+            <!-- Surprise Screen -->
             <div id="surprise-screen" class="hidden">
                 <h2>Sike! It's me! 💖</h2>
                 <img id="surpriseImage" src="surprise.png" alt="Surprise!">
@@ -38,6 +43,7 @@
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

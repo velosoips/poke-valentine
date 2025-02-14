@@ -13,15 +13,20 @@ let currentQuestionIndex = 0;
 function showQuestion() {
     document.getElementById("loading").classList.add("hidden");
     document.getElementById("quiz-container").classList.remove("hidden");
+
     const question = questions[currentQuestionIndex];
     document.getElementById("question-text").innerText = question.text;
-    const select = document.getElementById("answer-options");
-    select.innerHTML = "";
+    const answerContainer = document.getElementById("answer-options");
+    
+    // Clear previous buttons
+    answerContainer.innerHTML = "";
+    
+    // Create buttons for each option
     question.options.forEach(option => {
-        const opt = document.createElement("option");
-        opt.value = option;
-        opt.innerText = option;
-        select.appendChild(opt);
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.onclick = nextQuestion;
+        answerContainer.appendChild(button);
     });
 }
 

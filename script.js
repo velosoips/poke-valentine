@@ -29,9 +29,11 @@ function showQuestion() {
 
     answerContainer.innerHTML = ""; // Clear previous options
 
-    question.options.forEach(option => {
+    question.options.forEach((option, index) => {
         const button = document.createElement("button");
         button.innerText = option;
+        button.classList.add("quiz-button");
+        button.classList.add(`button-${index + 1}`); // Assign different colors
         button.onclick = nextQuestion;
         answerContainer.appendChild(button);
     });

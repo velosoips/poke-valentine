@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéMatch: Who’s Your Pokémon Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PokéMatch: Who’s Your Pokémon Valentine? 💖⚡</h1>
+        <div id="quiz">
+            <p>1. What’s your ideal date?</p>
+            <select id="q1">
+                <option value="fire">Bonfire under the stars</option>
+                <option value="water">Beachside picnic</option>
+                <option value="electric">Amusement park</option>
+                <option value="grass">Cozy garden tea</option>
+            </select>
+
+            <p>2. How do you express love?</p>
+            <select id="q2">
+                <option value="fire">Passionate words</option>
+                <option value="water">Deep emotional connection</option>
+                <option value="electric">Fun and excitement</option>
+                <option value="grass">Kindness and care</option>
+            </select>
+
+            <p>3. Pick a Pokémon type you vibe with:</p>
+            <select id="q3">
+                <option value="fire">🔥 Fire</option>
+                <option value="water">🌊 Water</option>
+                <option value="electric">⚡ Electric</option>
+                <option value="grass">🌿 Grass</option>
+            </select>
+
+            <button onclick="getPokemonMatch()">Find Your Pokémon Valentine! 💘</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Your Pokémon Valentine is...</h2>
+            <img id="pokemonImage" src="" alt="Your Pokémon match">
+            <p id="pokemonMatch"></p>
+            <button onclick="restartQuiz()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

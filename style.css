@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .pokedex {
     background: red;
     border: 10px solid black;
@@ -16,14 +17,17 @@ body {
     width: 350px;
     text-align: center;
 }
+
 .screen {
     background: lightgray;
     padding: 15px;
     border-radius: 10px;
 }
+
 .hidden {
     display: none;
 }
+
 button {
     display: block;
     width: 100%;
@@ -37,6 +41,22 @@ button {
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
 }
+
 button:hover {
     background-color: #ff2e00;
+}
+
+/* Pokéball Catch Feature */
+#catch-container {
+    margin-top: 20px;
+}
+
+#pokeball {
+    width: 50px;
+    cursor: pointer;
+    transition: transform 1s ease-in-out;
+}
+
+.throw-ball {
+    transform: translateY(-100px) translateX(50px);
 }

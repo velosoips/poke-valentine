@@ -3,7 +3,7 @@ const questions = [
     { text: "What's your ideal Valentine's date?", options: ["Picnic", "Movie night", "Adventure", "Dinner"] },
     { text: "Which Pokémon region would you visit?", options: ["Kanto", "Johto", "Hoenn", "Sinnoh"] },
     { text: "Pick a Pokéball type", options: ["Pokéball", "Great Ball", "Ultra Ball", "Master Ball"] },
-    { text: "What color do you like most?", options: ["Red", "Blue", "Green", "Yellow"] },
+    { text: "What color do you like most?", options: ["Red", "Blue", "Green", "Yellow", "Orange"] },
     { text: "What describes you best?", options: ["Brave", "Calm", "Energetic", "Mysterious"] },
     { text: "Which Pokémon ability do you prefer?", options: ["Speed Boost", "Levitate", "Intimidate", "Regenerator"] }
 ];

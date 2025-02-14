@@ -28,6 +28,31 @@ body {
     display: none;
 }
 
+/* Quiz Button Styling */
+.quiz-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+}
+
+.button-1 { background-color: #FF6961; } /* Red */
+.button-2 { background-color: #77DD77; } /* Green */
+.button-3 { background-color: #FFD700; } /* Yellow */
+.button-4 { background-color: #779ECB; } /* Blue */
+
+.quiz-button:hover {
+    opacity: 0.8;
+}
+
 /* Pokéball Styling */
 #pokeball {
     width: 50px;

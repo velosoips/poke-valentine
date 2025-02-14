@@ -60,3 +60,8 @@ button:hover {
 .throw-ball {
     transform: translateY(-100px) translateX(50px);
 }
+
+#surpriseImage {
+    width: 150px;
+    margin-top: 10px;
+}

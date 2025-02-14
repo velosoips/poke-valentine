@@ -30,11 +30,8 @@ body {
 
 /* Pokéball Styling */
 #pokeball {
-    background: url('pokeball.png') no-repeat center;
-    background-size: cover;
     width: 50px;
     height: 50px;
-    border: none;
     cursor: pointer;
     display: block;
     margin: 10px auto;
@@ -47,9 +44,19 @@ body {
 }
 
 @keyframes throwPokeball {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-50px) scale(1.1); }
-    100% { transform: translateY(-120px) scale(1.3); opacity: 0; }
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-50px) scale(1.2); }
+    100% { transform: translate(-40px, -100px) scale(1.5); opacity: 1; }
+}
+
+/* Pokémon disappears after being caught */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /* Center images */

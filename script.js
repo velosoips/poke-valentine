@@ -9,6 +9,7 @@ const questions = [
 ];
 
 let currentQuestionIndex = 0;
+let userAnswers = [];
 
 function showQuestion() {
     document.getElementById("loading").classList.add("hidden");
@@ -22,15 +23,17 @@ function showQuestion() {
     answerContainer.innerHTML = "";
     
     // Create buttons for each option
-    question.options.forEach(option => {
+    question.options.forEach((option, index) => {
         const button = document.createElement("button");
         button.innerText = option;
-        button.onclick = nextQuestion;
+        button.onclick = () => nextQuestion(index);
         answerContainer.appendChild(button);
     });
 }
 
-function nextQuestion() {
+function nextQuestion(selectedIndex) {
+    userAnswers.push(selectedIndex); // Store the selected answer
+    
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         document.getElementById("loading").classList.remove("hidden");
@@ -44,12 +47,30 @@ function nextQuestion() {
 function showResult() {
     document.getElementById("quiz-container").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
-    document.getElementById("pokemonMatch").innerText = "Pikachu!";
-    document.getElementById("pokemonImage").src = "pikachu.png";
+    
+    const pokemon = getPokemonMatch(userAnswers);
+    document.getElementById("pokemonMatch").innerText = pokemon.name;
+    document.getElementById("pokemonImage").src = pokemon.image;
+}
+
+function getPokemonMatch(answers) {
+    // Example matching logic: Adjust as needed
+    if (answers[0] === 0 && answers[1] === 2) {
+        return { name: "Charizard", image: "charizard.png" };
+    } else if (answers[0] === 1 && answers[2] === 1) {
+        return { name: "Blastoise", image: "blastoise.png" };
+    } else if (answers[0] === 2 && answers[4] === 2) {
+        return { name: "Venusaur", image: "venusaur.png" };
+    } else if (answers[0] === 3 && answers[5] === 3) {
+        return { name: "Raichu", image: "raichu.png" };
+    } else {
+        return { name: "Pikachu", image: "pikachu.png" };
+    }
 }
 
 function restartQuiz() {
     currentQuestionIndex = 0;
+    userAnswers = [];
     document.getElementById("result").classList.add("hidden");
     document.getElementById("loading").classList.remove("hidden");
     setTimeout(showQuestion, 1000);

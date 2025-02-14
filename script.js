@@ -26,8 +26,8 @@ function showQuestion() {
     const question = questions[currentQuestionIndex];
     document.getElementById("question-text").innerText = question.text;
     const answerContainer = document.getElementById("answer-options");
-    
-    answerContainer.innerHTML = "";
+
+    answerContainer.innerHTML = ""; // Clear previous options
 
     question.options.forEach(option => {
         const button = document.createElement("button");
@@ -53,7 +53,7 @@ function showResult() {
     document.getElementById("result").classList.remove("hidden");
 
     selectedPokemon = pokemonResults[Math.floor(Math.random() * pokemonResults.length)];
-    
+
     document.getElementById("pokemonMatch").innerText = selectedPokemon.name + "!";
     document.getElementById("pokemonImage").src = selectedPokemon.img;
 }

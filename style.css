@@ -46,22 +46,27 @@ button:hover {
     background-color: #ff2e00;
 }
 
-/* Pokéball Catch Feature */
-#catch-container {
-    margin-top: 20px;
+#pokemonImage, #surpriseImage {
+    max-width: 200px;
+    margin: 10px auto;
 }
 
 #pokeball {
-    width: 50px;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: transform 1s ease-in-out;
 }
 
 .throw-ball {
-    transform: translateY(-100px) translateX(50px);
+    animation: throwPokeball 1s forwards;
 }
 
-#surpriseImage {
-    width: 150px;
-    margin-top: 10px;
+@keyframes throwPokeball {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-50px) rotate(20deg); }
+    100% { transform: translateY(0) scale(1.2); }
 }

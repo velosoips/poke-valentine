@@ -1,12 +1,7 @@
-@font-face {
-    font-family: 'Futura Medium';
-    src: url('Futura-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 body {
-    font-family: 'Futura Medium', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #ffcc00;
     display: flex;
     justify-content: center;
@@ -40,7 +35,7 @@ button {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    font-family: 'Futura Medium', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 button:hover {
     background-color: #ff2e00;

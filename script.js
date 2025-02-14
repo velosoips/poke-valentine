@@ -51,10 +51,12 @@ function showResult() {
     const pokemon = getPokemonMatch(userAnswers);
     document.getElementById("pokemonMatch").innerText = pokemon.name;
     document.getElementById("pokemonImage").src = pokemon.image;
+
+    // Show the "Catch Pokémon" prompt
+    document.getElementById("catch-container").classList.remove("hidden");
 }
 
 function getPokemonMatch(answers) {
-    // Example matching logic: Adjust as needed
     if (answers[0] === 0 && answers[1] === 2) {
         return { name: "Charizard", image: "charizard.png" };
     } else if (answers[0] === 1 && answers[2] === 1) {
@@ -68,11 +70,34 @@ function getPokemonMatch(answers) {
     }
 }
 
+// Function to handle catching animation
+function catchPokemon() {
+    const pokeball = document.getElementById("pokeball");
+    const pokemonImage = document.getElementById("pokemonImage");
+
+    // Animate Pokéball moving toward the Pokémon
+    pokeball.classList.add("throw-ball");
+
+    // After animation, hide Pokémon and show "Got it!" message
+    setTimeout(() => {
+        pokemonImage.style.display = "none";
+        document.getElementById("pokemonMatch").innerText = "Got it!";
+        pokeball.style.display = "none";
+    }, 1000);
+}
+
 function restartQuiz() {
     currentQuestionIndex = 0;
     userAnswers = [];
     document.getElementById("result").classList.add("hidden");
     document.getElementById("loading").classList.remove("hidden");
+
+    // Reset Pokéball and Pokémon visibility
+    document.getElementById("pokeball").classList.remove("throw-ball");
+    document.getElementById("pokeball").style.display = "block";
+    document.getElementById("pokemonImage").style.display = "block";
+    document.getElementById("catch-container").classList.add("hidden");
+
     setTimeout(showQuestion, 1000);
 }
 

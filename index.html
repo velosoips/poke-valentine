@@ -12,8 +12,9 @@
             <div id="loading" class="hidden">Loading...</div>
             <div id="quiz-container">
                 <p id="question-text"></p>
-                <div id="answer-options"></div> <!-- Buttons will be added dynamically here -->
+                <div id="answer-options"></div>
             </div>
+
             <div id="result" class="hidden">
                 <h2>Your Pokémon Valentine is...</h2>
                 <img id="pokemonImage" src="" alt="Your Pokémon match">
@@ -25,7 +26,19 @@
                     <img id="pokeball" src="pokeball.png" alt="Pokéball" onclick="catchPokemon()">
                 </div>
 
-                <button onclick="restartQuiz()">Try Again</button>
+                <!-- Hidden Section for the Surprise -->
+                <div id="reveal-container" class="hidden">
+                    <p>Now let's take a look at your catch!</p>
+                    <button onclick="openPokeball()">Check Pokéball</button>
+                </div>
+
+                <!-- Final Reveal -->
+                <div id="final-reveal" class="hidden">
+                    <img id="surpriseImage" src="surprise.png" alt="Surprise!">
+                    <p>Sike! It's me! Happy Valentine's! 💖</p>
+                </div>
+
+                <button id="restart-btn" class="hidden" onclick="restartQuiz()">Try Again</button>
             </div>
         </div>
     </div>

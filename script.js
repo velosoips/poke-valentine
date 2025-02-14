@@ -60,7 +60,10 @@ function showResult() {
 
 function catchPokemon() {
     const pokeball = document.getElementById("pokeball");
+    const pokemonImage = document.getElementById("pokemonImage");
+
     pokeball.classList.add("throw-ball");
+    pokemonImage.classList.add("fade-out");
 
     setTimeout(() => {
         document.getElementById("result").classList.add("hidden");

@@ -1,53 +1,24 @@
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    color: white;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffcc00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: rgba(0, 0, 0, 0.8);
+.pokedex {
+    background: red;
+    border: 10px solid black;
+    border-radius: 20px;
     padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+.screen {
+    background: lightgray;
+    padding: 15px;
     border-radius: 10px;
 }
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 18px;
-}
-
-select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #ff477e;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff206e;
-}
-
 .hidden {
     display: none;
-}
-
-img {
-    width: 150px;
-    height: 150px;
 }

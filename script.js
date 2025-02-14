@@ -19,10 +19,8 @@ function showQuestion() {
     document.getElementById("question-text").innerText = question.text;
     const answerContainer = document.getElementById("answer-options");
     
-    // Clear previous buttons
-    answerContainer.innerHTML = "";
+    answerContainer.innerHTML = ""; // Clear previous buttons
     
-    // Create buttons for each option
     question.options.forEach((option, index) => {
         const button = document.createElement("button");
         button.innerText = option;
@@ -32,8 +30,8 @@ function showQuestion() {
 }
 
 function nextQuestion(selectedIndex) {
-    userAnswers.push(selectedIndex); // Store the selected answer
-    
+    userAnswers.push(selectedIndex);
+
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         document.getElementById("loading").classList.remove("hidden");
@@ -51,8 +49,6 @@ function showResult() {
     const pokemon = getPokemonMatch(userAnswers);
     document.getElementById("pokemonMatch").innerText = pokemon.name;
     document.getElementById("pokemonImage").src = pokemon.image;
-
-    // Show the "Catch Pokémon" prompt
     document.getElementById("catch-container").classList.remove("hidden");
 }
 
@@ -70,20 +66,25 @@ function getPokemonMatch(answers) {
     }
 }
 
-// Function to handle catching animation
 function catchPokemon() {
     const pokeball = document.getElementById("pokeball");
     const pokemonImage = document.getElementById("pokemonImage");
 
-    // Animate Pokéball moving toward the Pokémon
     pokeball.classList.add("throw-ball");
 
-    // After animation, hide Pokémon and show "Got it!" message
     setTimeout(() => {
         pokemonImage.style.display = "none";
-        document.getElementById("pokemonMatch").innerText = "Got it!";
-        pokeball.style.display = "none";
+        document.getElementById("pokemonMatch").innerText = "";
+
+        document.getElementById("catch-container").classList.add("hidden");
+        document.getElementById("reveal-container").classList.remove("hidden");
     }, 1000);
+}
+
+function openPokeball() {
+    document.getElementById("reveal-container").classList.add("hidden");
+    document.getElementById("final-reveal").classList.remove("hidden");
+    document.getElementById("restart-btn").classList.remove("hidden");
 }
 
 function restartQuiz() {
@@ -91,13 +92,6 @@ function restartQuiz() {
     userAnswers = [];
     document.getElementById("result").classList.add("hidden");
     document.getElementById("loading").classList.remove("hidden");
-
-    // Reset Pokéball and Pokémon visibility
-    document.getElementById("pokeball").classList.remove("throw-ball");
-    document.getElementById("pokeball").style.display = "block";
-    document.getElementById("pokemonImage").style.display = "block";
-    document.getElementById("catch-container").classList.add("hidden");
-
     setTimeout(showQuestion, 1000);
 }
 

@@ -11,7 +11,7 @@ body {
     border: 10px solid black;
     border-radius: 20px;
     padding: 20px;
-    width: 300px;
+    width: 350px;
     text-align: center;
 }
 .screen {
@@ -21,4 +21,19 @@ body {
 }
 .hidden {
     display: none;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ff5733;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #ff2e00;
 }

@@ -8,8 +8,16 @@ const questions = [
     { text: "Which Pokémon ability do you prefer?", options: ["Speed Boost", "Levitate", "Intimidate", "Regenerator"] }
 ];
 
+const pokemonResults = [
+    { name: "Pikachu", img: "pikachu.png" },
+    { name: "Charizard", img: "charizard.png" },
+    { name: "Blastoise", img: "blastoise.png" },
+    { name: "Venusaur", img: "venusaur.png" },
+    { name: "Raichu", img: "raichu.png" }
+];
+
 let currentQuestionIndex = 0;
-let userAnswers = [];
+let selectedPokemon = null;
 
 function showQuestion() {
     document.getElementById("loading").classList.add("hidden");
@@ -19,19 +27,17 @@ function showQuestion() {
     document.getElementById("question-text").innerText = question.text;
     const answerContainer = document.getElementById("answer-options");
     
-    answerContainer.innerHTML = ""; // Clear previous buttons
-    
-    question.options.forEach((option, index) => {
+    answerContainer.innerHTML = "";
+
+    question.options.forEach(option => {
         const button = document.createElement("button");
         button.innerText = option;
-        button.onclick = () => nextQuestion(index);
+        button.onclick = nextQuestion;
         answerContainer.appendChild(button);
     });
 }
 
-function nextQuestion(selectedIndex) {
-    userAnswers.push(selectedIndex);
-
+function nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         document.getElementById("loading").classList.remove("hidden");
@@ -45,52 +51,31 @@ function nextQuestion(selectedIndex) {
 function showResult() {
     document.getElementById("quiz-container").classList.add("hidden");
     document.getElementById("result").classList.remove("hidden");
-    
-    const pokemon = getPokemonMatch(userAnswers);
-    document.getElementById("pokemonMatch").innerText = pokemon.name;
-    document.getElementById("pokemonImage").src = pokemon.image;
-    document.getElementById("catch-container").classList.remove("hidden");
-}
 
-function getPokemonMatch(answers) {
-    if (answers[0] === 0 && answers[1] === 2) {
-        return { name: "Charizard", image: "charizard.png" };
-    } else if (answers[0] === 1 && answers[2] === 1) {
-        return { name: "Blastoise", image: "blastoise.png" };
-    } else if (answers[0] === 2 && answers[4] === 2) {
-        return { name: "Venusaur", image: "venusaur.png" };
-    } else if (answers[0] === 3 && answers[5] === 3) {
-        return { name: "Raichu", image: "raichu.png" };
-    } else {
-        return { name: "Pikachu", image: "pikachu.png" };
-    }
+    selectedPokemon = pokemonResults[Math.floor(Math.random() * pokemonResults.length)];
+    
+    document.getElementById("pokemonMatch").innerText = selectedPokemon.name + "!";
+    document.getElementById("pokemonImage").src = selectedPokemon.img;
 }
 
 function catchPokemon() {
     const pokeball = document.getElementById("pokeball");
-    const pokemonImage = document.getElementById("pokemonImage");
-
     pokeball.classList.add("throw-ball");
 
     setTimeout(() => {
-        pokemonImage.style.display = "none";
-        document.getElementById("pokemonMatch").innerText = "";
-
-        document.getElementById("catch-container").classList.add("hidden");
-        document.getElementById("reveal-container").classList.remove("hidden");
-    }, 1000);
+        document.getElementById("result").classList.add("hidden");
+        document.getElementById("caught-screen").classList.remove("hidden");
+    }, 1200);
 }
 
-function openPokeball() {
-    document.getElementById("reveal-container").classList.add("hidden");
-    document.getElementById("final-reveal").classList.remove("hidden");
-    document.getElementById("restart-btn").classList.remove("hidden");
+function revealSurprise() {
+    document.getElementById("caught-screen").classList.add("hidden");
+    document.getElementById("surprise-screen").classList.remove("hidden");
 }
 
 function restartQuiz() {
     currentQuestionIndex = 0;
-    userAnswers = [];
-    document.getElementById("result").classList.add("hidden");
+    document.getElementById("surprise-screen").classList.add("hidden");
     document.getElementById("loading").classList.remove("hidden");
     setTimeout(showQuestion, 1000);
 }

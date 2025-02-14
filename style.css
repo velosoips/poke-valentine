@@ -46,21 +46,7 @@ button:hover {
     background-color: #ff2e00;
 }
 
-#pokemonImage, #surpriseImage {
-    max-width: 200px;
-    margin: 10px auto;
-}
-
-#pokeball {
-    background-color: white;
-    color: black;
-    font-size: 18px;
-    border: 2px solid black;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
+/* Pokéball Throw Animation */
 .throw-ball {
     animation: throwPokeball 1s forwards;
 }
@@ -69,4 +55,10 @@ button:hover {
     0% { transform: translateY(0); }
     50% { transform: translateY(-50px) rotate(20deg); }
     100% { transform: translateY(0) scale(1.2); }
+}
+
+/* Center images */
+img {
+    max-width: 150px;
+    margin: 15px auto;
 }
